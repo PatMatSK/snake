@@ -156,41 +156,41 @@ class Snake:
 def find_place():
     x = random.randint(20, CANVAS_WIDTH - 25)
     y = random.randint(20, CANVAS_HEIGH - 25)
-    prekr = can.find_overlapping(x, y, x + 10, y + 10)
-    while len(prekr) != 0:
+    cover = can.find_overlapping(x, y, x + 10, y + 10)
+    while len(cover) != 0:
         x = random.randint(20, CANVAS_WIDTH - 20)
         y = random.randint(20, CANVAS_WIDTH - 20)
-        prekr = can.find_overlapping(x, y, x + 10, y + 10)
+        cover = can.find_overlapping(x, y, x + 10, y + 10)
 
     return x, y
 
 
 class Fruit:
     def __init__(self):
-        self.ovocie = []
+        self.fruit = []
 
     def show(self):
-        return self.ovocie
+        return self.fruit
 
     def apple(self, x, y):
-        self.ovocie.append(can.create_oval(x, y, x + 10, y + 10, fill="red", outline="red"))
-        self.ovocie.append("j")
+        self.fruit.append(can.create_oval(x, y, x + 10, y + 10, fill="red", outline="red"))
+        self.fruit.append("j")
 
     def orange(self, x, y):
-        self.ovocie.append(can.create_oval(x, y, x + 10, y + 10, fill="orange", outline="orange"))
-        self.ovocie.append("p")
+        self.fruit.append(can.create_oval(x, y, x + 10, y + 10, fill="orange", outline="orange"))
+        self.fruit.append("p")
 
     def chilli(self, x, y):
-        self.ovocie.append(can.create_arc(x, y, x + 30, y + 30, start=0, extent=45, fill="red", outline="red"))
-        self.ovocie.append("ch")
+        self.fruit.append(can.create_arc(x, y, x + 30, y + 30, start=0, extent=45, fill="red", outline="red"))
+        self.fruit.append("ch")
 
     def berry(self, x, y):
-        self.ovocie.append(can.create_oval(x, y, x + 10, y + 10, fill="purple", outline="purple"))
-        self.ovocie.append("b")
+        self.fruit.append(can.create_oval(x, y, x + 10, y + 10, fill="purple", outline="purple"))
+        self.fruit.append("b")
 
     def lime(self, x, y):
-        self.ovocie.append(can.create_oval(x, y, x + 10, y + 10, fill="lightgreen", outline="lightgreen"))
-        self.ovocie.append("l")
+        self.fruit.append(can.create_oval(x, y, x + 10, y + 10, fill="lightgreen", outline="lightgreen"))
+        self.fruit.append("l")
 
     def paint(self):
         x, y = find_place()
@@ -211,9 +211,9 @@ class Fruit:
         global score
         score += body
         lab["text"] = score
-        can.delete(self.ovocie[ovo])
-        self.ovocie.pop(ovo)
-        self.ovocie.pop(ovo)
+        can.delete(self.fruit[ovo])
+        self.fruit.pop(ovo)
+        self.fruit.pop(ovo)
         can.update()
         self.paint()
 
