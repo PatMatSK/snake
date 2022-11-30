@@ -7,3 +7,6 @@ Each bonus increases length and also:
 - chill - increase speed, set to normal size
 - lime - make slim if not
 - berry - make possible to go over myself
+
+
+(GVPT, 2019)
