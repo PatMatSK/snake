@@ -39,24 +39,24 @@ class Snake:
     def right(self, _event=None):
         while self.running:
             self.x += 3
-            self.posun(3, 0)
+            self.move(3, 0)
 
     def left(self, _event=None):
         while self.running:
             self.x = self.x - 3
-            self.posun(-3, 0)
+            self.move(-3, 0)
 
     def up(self, _event=None):
         while self.running:
             self.y = self.y - 3
-            self.posun(0, -3)
+            self.move(0, -3)
 
     def down(self, _event=None):
         while self.running:
             self.y += 3
-            self.posun(0, 3)
+            self.move(0, 3)
 
-    def posun(self, x, y):
+    def move(self, x, y):
         can.after(self.cas)
 
         if 0 < self.x < CANVAS_WIDTH \
